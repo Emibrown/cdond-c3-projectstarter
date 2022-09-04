@@ -236,12 +236,12 @@ jobs:
             # Your code here
             cd .circleci/ansible
             ansible-playbook -i inventory.txt configure-server.yml
-      # - run:
-      #     name: Configure prometheus server
-      #     command: |
-      #       # Your code here
-      #       cd .circleci/ansible
-      #       ansible-playbook -i inventory.txt configure-prometheus.yml
+      - run:
+          name: Configure prometheus server
+          command: |
+            # Your code here
+            cd .circleci/ansible
+            ansible-playbook -i inventory.txt configure-prometheus.yml
 
   run-migrations:
     docker:
