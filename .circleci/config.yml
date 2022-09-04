@@ -201,12 +201,12 @@ jobs:
             # Your code here
             cd .circleci/ansible
             ansible-playbook -i inventory.txt configure-server.yml
-      - run:
-          name: Configure prometheus server
-          command: |
-            # Your code here
-            cd .circleci/ansible
-            ansible-playbook -i inventory.txt configure-prometheus.yml
+      # - run:
+      #     name: Configure prometheus server
+      #     command: |
+      #       # Your code here
+      #       cd .circleci/ansible
+      #       ansible-playbook -i inventory.txt configure-prometheus.yml
 
   run-migrations:
     docker:
@@ -226,7 +226,7 @@ jobs:
           command: |
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
-              curl --insecure https://kvdb.io/Hy5daDhQowyhRMFYqP5n9G/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              curl --insecure https://kvdb.io/3x3fYYuUn1WdqCQRShVyeL/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
       - destroy-environment
       - revert-migrations     
