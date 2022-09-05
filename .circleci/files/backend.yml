@@ -43,3 +43,5 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub backend-${ID}
+
+# sudo bash -c 'nano /etc/prometheus/alertmanager.yml'
